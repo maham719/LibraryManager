@@ -66,8 +66,7 @@ elif menu == "Search Book":
         else:
               st.warning("No books found")
    
-    else:
-        st.warning("📭 No books available to remove!")
+    
 
 elif menu == "Save and Exit":
     save_library()
