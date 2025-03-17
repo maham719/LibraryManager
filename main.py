@@ -43,7 +43,7 @@ elif menu == "Add Book":
         })
         save_library()  
         st.success("Book Added Successfully")
-        st.rerun()
+        
 elif menu == "Remove Book":
     st.sidebar.title("Remove a Book")
     book_titles=[book["title"] for book in library]
