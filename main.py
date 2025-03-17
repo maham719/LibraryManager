@@ -56,17 +56,16 @@ elif menu == "Remove Book":
             st.rerun()
     else:
             st.warning("no books in your library !")
-elif menu == "Remove a Book ❌":
-    st.header("🗑️ Remove a Book")
-    book_titles = [book["title"] for book in library]
-    if book_titles:
-        selected_book = st.selectbox("📖 Select a book to remove", book_titles, key="remove_book")
-        
-        if st.button("❌ Remove Book"):
-            library = [book for book in library if book["title"] != selected_book]
-            save_library()
-            st.success("🚀 Book Removed Successfully! 📖")
-            st.rerun()
+elif menu == "Search Book":
+    st.sidebar.title("Search a Book")
+    search_term=st.text_input("Enter title or author name")
+    if st.button("search"):
+        results=[book for book in library if search_term.lower() in book["title"].lower() or search_term.lower() in book["author"].lower() ]
+        if results:
+            st.table(results)
+        else:
+              st.warning("No books found")
+   
     else:
         st.warning("📭 No books available to remove!")
 
